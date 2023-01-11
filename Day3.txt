@@ -36,3 +36,9 @@ function rainWater(nums) {
 To optimise space  => two pointer approach => space complexity will be O(1)
 whichever pointer has less height we will move 
 
+
+# Maximum of absolute value expression 
+brute force => two loops => O(n2)
+take 4 cases=> in total we have 8 cases but we are taking 4 bcz i and j are interchanagble and give same result 
+buid 4 different array then get max 
+1st case => a1[i] >a1[j] && a2[i] > a2[j] && i>j => (a1[i]+a2[j]+1) - (a1[j]+a2[j]+j)

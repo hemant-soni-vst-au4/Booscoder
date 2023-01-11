@@ -1,0 +1,44 @@
+lucid.app => drawing
+Array & math problems discussion
+# Trapping rain water 
+
+min(leftmax, rightmax)
+ignore first and last 
+
+Brute Force 
+
+traverse on left and right  and note leftmax and right max for each index
+
+
+optimise the time - o(n) but space complexity will be O(n)
+
+precompute and store value 
+maxleft = 2,2,3,3,3,4 // comparing with previous store element
+
+maxright = 4,4,4,4,4,4 // start from last index 
+
+water traped at each step = min(left,rightmax) - height => 0,1,0,1,2,0 => 4 unit 
+function rainWater(nums) {
+  let totalTrap = 0,
+  maxL = [], maxR=[],
+  maxL[0] = nums[0];
+  for(let i =1; i < nums.length; i++) {
+      maxL[i] = math.max(maxL(i-1), nums[i])
+      maxR[i] = Math.max(maxR(i+1), nums[i])
+  }
+
+  for(let i =0; i< nums.length; i++) {
+      tatalWater += min(maxL[i], maxR[i]) - nums[i]
+  }
+  return totalTrap;
+}
+
+To optimise space  => two pointer approach => space complexity will be O(1)
+whichever pointer has less height we will move 
+
+
+# Maximum of absolute value expression 
+brute force => two loops => O(n2)
+take 4 cases=> in total we have 8 cases but we are taking 4 bcz i and j are interchanagble and give same result 
+buid 4 different array then get max 
+1st case => a1[i] >a1[j] && a2[i] > a2[j] && i>j => (a1[i]+a2[j]+1) - (a1[j]+a2[j]+j)

@@ -25,10 +25,4 @@ most imp => hashing, binary search, graph
 Why less time complexity required? => writting algorithm which take lesser time => optimal solution
 
 
-for(let i=0; i<n; i++) {
-  for(let j = 0; i < 100; j++) {
-    console.log(i*j)
-  }
-}
-
-Sir time complexity in this case will be O(n);
+develop thinking => Practice 

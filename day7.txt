@@ -1,0 +1,74 @@
+Solutions 1-d and 2d
+
+1. search-a-2d-matrix
+Sorted in row n coloumn
+brute force -> O(n* m) -> traverse
+binary search -> little better- O(m logn)
+
+we check from last coloumn - is smaller or bigger -> make a decion to move -> O(m+n) -
+
+let row = matrix.length;
+let col = matrix[0].length;
+
+let i =0;
+let j = col-1
+
+while(i< row && j >=0) {
+  if(matrix[i][j] === rigth){
+    return true;
+  } else if(matrix[i][j] > target) {
+    j--
+  } else {
+     i++
+  }
+}
+
+2. Max chunk to sorted array
+var maxChunksToSorted = function(arr) {
+    // chaining technique
+    let max = 0;
+    let count = 0;
+    for(let i = 0; i< arr.length; i++) {
+        max = Math.max(arr[i], max);
+        if(i === max) {
+            count++
+        }
+    }
+    return count;
+};
+
+3. Range Sum Query 2D - Immutable
+
+
+vector<vector<int>>arr;
+    NumMatrix(vector<vector<int>>& matrix) {
+        
+       
+        int m = matrix.size();
+        int n =matrix[0].size();
+         arr.resize(m+1, vector<int>(n+1));
+        
+        for(int i=1;i<=m;i++)
+        {
+            for(int j=1; j<=n;j++)
+            {
+                arr[i][j] = matrix[i-1][j-1]+ arr[i-1][j]+ arr[i][j-1] - arr[i-1][j-1];
+            }
+        }
+    }
+    
+    int sumRegion(int i1, int j1, int i2, int j2) {
+         
+        return arr[i2+1][j2+1]- arr[i1][j2+1] - arr[i2+1][j1] + arr[i1][j1];
+    }
+};
+
+
+
+
+
+
+
+
+
+

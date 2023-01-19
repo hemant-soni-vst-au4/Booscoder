@@ -75,7 +75,7 @@ How many website on internet? many many
 Few Dns store on client side
 local DNS
 Bigger DNS -> 3-4 hopp
- return 1 Ip (address of 1 machine) or list Ip (bigger company who have multiple load balancers);
+ return 1 Ip (address of 1 machine) or list Ip return in random oprder to make blance in LB (bigger company who have multiple load balancers);
 
 Static Ip -> google.com bought domain name -> IP will be fixed
 Dynamic Ips -> ISP - DHCP assign->Ips

@@ -1,0 +1,83 @@
+# Sebsequence with GCD
+
+1. given an array of element return 1 if there exists any subsequence in that array with gcd = 1
+
+[a1,a2,a3,a4,a5];
+
+
+gcd(a,b) = gcd(b,a);
+gcd(a,b,c) = gcd(gcd(a,b),c) = gcd(gcd(a,c),b) 
+
+step 1 = calculate gcd of whole array
+step 2 = if gcd(array) = 1 => return true : else false;
+
+time complexity -> O(nlog(max(array)));
+
+
+2. Find all the factor of that number
+
+brute force -> for i<- n-1
+if(n%i === 0) push array
+
+Optimal - > loop upto n/2
+1 and n always the factor
+if next factor 2 -> n/2
+if next factor 3 -> n/3
+
+time complexity O(n/2)
+
+for i<- square root of n 
+if n%i == 0 ? append i : append 
+time complexty O(squareroot n);
+
+3. Odd even number of factors
+if perfect square => no. of factor will be Odd
+
+sol1 -> squareroot Approach
+
+optimal 
+if 10 is number 
+1,10 is pair
+2,5 is a pair
+
+if(number is perfect square) return odd : return even
+time complexity -> O(logn) time 
+
+4. tell a number a prime or not
+count number of factors => if 2 than prime
+
+5. prime from 1 to n 
+run for loop to check prime i by counting the factor
+
+time complexity -> n(sqrt(n))
+
+Optimal approach -> 
+sieve approach
+let find 1st prime after 1 -> multiple of 1st will not be prime number  => so discard all these number
+
+time complexity -> O(nlogn) = upper bound
+
+
+6. What is deadlock in operating system?
+process is waiting for resource and resource is waiting for process
+
+
+7. Modular Airthmetic
+
+x & y are integer then the expression x%y produces the remainder when x is divided by y
+
+1. mod reapeat -> 0->n-1 range 
+2. (a+b) mod m = ((a mod m ) + (b mod m)) mod m => apply to multiply and substraction not division
+
+division -> inverse modulus
+
+
+8. Array pair divisble by k 
+(arr[i] + arr[j]) % k = 0 wher i != j
+
+brute force ->  two for loop
+optimal ;->
+
+
+
+

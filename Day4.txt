@@ -1,0 +1,28 @@
+// complexity
+
+TC help in analysis runtime of algorithm 
+algorithm => process/ formula to solve a problem 
+
+Compare the runtime
+-> Hardware dependent
+-> extra human resource required
+
+We need better mechanism to compare algorithm => Time complexity
+
+how number of operations taken by algo increase w.r.t. input 
+
+input increase but operation are constant => O(1)
+operation directly proportion to input => O(n)
+
+
+O(n2) => Quadratic => sorting - bubble and insertion
+O(logn) => Binary search => on each step problem is divided into 2 half => divide & conquer => greatest common diviser
+O(nlogn) => Quick sort & merge sort 
+O(1) => Hashing 
+
+most imp => hashing, binary search, graph
+
+Why less time complexity required? => writting algorithm which take lesser time => optimal solution
+
+
+develop thinking => Practice 

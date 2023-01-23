@@ -1,0 +1,52 @@
+## Matrix
+
+Given a m*n matrix find sum of all sub matrices of this matrix.
+
+Concept 1:- top left and bottom right 
+
+
+
+2. Array queries -> Most imp asked in amazon assessment
+
+n queries represented by start to end
+
+find sum of array elements from start index for each query.
+
+query is very high
+
+brute force => for loop start to end
+optimal approach => Prefix sum in subarray/ submatrix  => 90% problem 
+
+Array =>  1,3,7,-6,2,0,9
+prefixsum 1,4,11,5,7,7,16
+
+ps[i]-> sum of element from (0 to i);
+
+sum(s,e) = ps(e) - ps(s-1);
+
+Algo 
+calculate prefix sum array -> o(n);
+for every query use prefix sum array to calculate sum(s,e) -> O(1);
+
+O(n) + Q * O(1) <= time complexity
+O(n) => space complexity
+
+
+Same proble for matrix
+
+brute force
+for i <- T-B 
+  for j <- L-R 
+    sum = sum+a[i][j]
+return sum;
+
+Prefix sum matrix
+first do row wise sum
+then coloumn wise sum
+
+sum = ps(B,R) - ps(t-1,r) - ps(b,l-1)+ps(t-1,l-1)
+
+O(n*m) + Q * O(1);
+
+Edge case -> what if t become 0 and l become 0 => need to consider
+

@@ -1,0 +1,81 @@
+System Design
+1) LLD
+- Optimal code is moduler + extensible + readbale
+2) HLD
+- Scalling -> strength of user using, 
+- Storage -> what, where, why
+- Availability of system  -> all the time(google) or Banking (not available for some time);
+- Data Consistency -> balance in bank account
+- Disaster recovery
+- QPS (Queries per second)
+- Latency
+
+Agenda -> 4 broad category + Advance fundamentals
+1 Foundational knowledge => client server architecture , DNS ,Network Protocols
+2. Key characterstics/ trade off - Availability, Latency, Consistency, throughput, redundency
+3. Actual components -> tangible -> load balancers, proxy/reverse proxy, Hashing, Rate limiting, leader election/ master slave architecture, storage/ caches(redix)
+4. Actual tech -> amazon ( use for load balancer) -> nginx(reverse proxy, rate limiting), redix, storage of file(gcp/s3), message queue
+
+problems
+design uber apis, leetcode, google drive, airbnb, FB newsfeed, chat system
+
+What happen in design interview? 
+No correct answer for HLD - 1hr- not objective
+confidently justify your solutions
+eliminate any doubt of interviewer -> defend your design decision
+
+
+
+## Start
+
+1) client- server architecture
+client -> browser/ mobile app/ desktop
+server -> sending response to client's request
+
+request -> HTTP (Port:80) or HTTPS(PORT:443)
+
+every server have a IP address
+client has domain
+DNS server (mapping) -> store IP address of each domain
+return IP or group of IP to client
+
+now client will use waterfall model -> try the ip address one by one -> Request to load balancer
+
+Now load balancer assign request to one of the server -> then go to one storage layer -> data back to server to LB  to client
+
+caching -> Do we need every time to go to storage layer to get data?
+Storing in faster machine -> can be happen at LB layer or application layer or storage layer or client side or 3rd party cache (CDN cache - where client can talk directly);
+
+issue -> data not updated correctly
+cache eviction technique
+
+
+Application layer -> multiple server
+vertical / Horizontal Scalling
+either increase or replace with the more power of machine -> vertical Scalling
+drwaback - cost, there will be max limits, there will be a downtime (Replacing time)
+used -> mySQL DBS (difficult to have distributed DBS) - e.g. Amazon RDS -> Horizontal Scalling
+CAP theorem
+
+Horizontal Scalling -> Adding more machine rathe than replacing original one
+Most of system now day used
+
+
+client -> DNS(return IP) -> waterfall model -> LB -> App server -> storage layer -> app server -> LB -> client
+there might be caches in between  -> Basically it is pre prosseser
+
+global cache or distributed caches 
+CDN is used to store media files mostly -> 3rd party like Akmai -> globally available and fast 
+LB will return the url of CDN link
+
+
+DNS server 
+How many website on internet? many many
+1 DNS not possible to have mapping -> work in herarchichal way
+Few Dns store on client side
+local DNS
+Bigger DNS -> 3-4 hopp
+ return 1 Ip (address of 1 machine) or list Ip return in random oprder to make blance in LB (bigger company who have multiple load balancers);
+
+Static Ip -> google.com bought domain name -> IP will be fixed
+Dynamic Ips -> ISP - DHCP assign->Ips

@@ -1,0 +1,102 @@
+# Introduction to HLD
+
+Rajat Garg
+
+1) Simple chat system 
+
+a) college project
+- design of database, UI, Tech stack, 1000 user
+
+b) Telegram
+- 1 billion, 20% daily active, 10 msg daily, 1kb size of msg, 2TB data per daily
+dont delete previous msg,
+10 yr => 7200 2TB =>> need multiple storage machine
+
+challenges
+how to store this much data
+support queries
+
+Architectural decision
+
+
+
+Intro to HLD
+
+client
+
+DNS => mapping b/w domain n ip address
+
+
+Machine => to answer query of user => its architecture => HLD
+
+
+
+case study -> pinboard.in
+" 2005, bookmarking website
+support 2 api -> add bookmark && retrive bookmark
+
+Storage => Mapping => userid : list of bookmark =>> 40 GB storage
+
+After time =>> Famous => USer increases => storage require increase
+storage filled 5gb per month"
+
+solution
+1) replace with a better machine with better storages and power => Vertical scaling
+Advantages of vertical scaling -> less tricky - simple to maintain
+Disadvantages -> Not suistainable => in future storage filled => again change 
+
+2) Adding more storage not replacing intial one => Horizontal scaling
+Use the load balancer -> routing the query to different storages
+Disadvantages-> Complexity increase but controllibility also increase
+
+
+LOAD BALANCER 
+
+1) Round Robin (RR)-> priority scheduling
+disadvantages -> if one machine fails then the request send to that machine will fails
+
+solution => Health check -> to check every machine -> randomally
+
+Now load balancer will send data to machine who's health status is healthy 
+
+Still diadvantages => if a machine for reason slow then still it send request to that machine rather then to faster machine
+
+Solution
+Least response time storing by load balancer
+machine id, health check, response time
+then load balancer do least response time algorithm and send request accordingly
+
+
+## Above things Only work for stateless service
+
+Stateless service
+1) if a req sent to 2 different servers then response will be same.
+
+State Full service
+1) if a req sent to 2 different servers then response will not be same.
+Round Robin will not work here
+
+
+## Load Balancer for Stateful request
+Requirments of load Balancer
+1) should be faster -> store data in ram only not in hard disk -> can't store much data 
+2) faster + less data storage
+
+approach
+
+1) Storing key value (hash map ) in load balancer => userid to machine id
+disadvantages -> need more memory when user increases 
+
+2) We can store user id in the form of range
+disadvantages
+users increases needs to maiantain more ranges of users id's
+unequal distribution of load -> older user in intial server 
+difficult to find optimal value of N -> how much user store in which server 
+
+
+3) userId % N -> what if more server machine needed to add
+Advantages -> old and new user mixes
+
+
+
+Right approach -> Consistence hashing

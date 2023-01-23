@@ -1,0 +1,53 @@
+## Math-1
+
+1. problem solving random numbers   (Microsoft, directi)
+
+implement rand9(1...9) using random6(1...6) -> with equal probability 1/6
+
+Approach => 
+
+int ran9() {
+  x = ran6();
+  y = ran6();
+  v = (x-1) *6 +y
+  return v % 9 +1;
+}
+
+=> implement rand7(1...7) using random5(1...5)
+
+int ran7() {
+  x = ran5();
+  y = ran5();
+  v = (x-1) *5 +y;
+
+  if(v>=22) {
+    return ran7
+  }
+  return v % 7 +1;
+}
+
+
+
+2. Concet of GCD -> Greatest common divisior of two or more number
+
+brute => iterate in revese on min(a,b)
+if(a%i ===0 & b% i == 0) {
+  return i;
+}
+
+Optimal Approach
+
+gcd(r,d) {
+  if(r == 0) return d;
+  return gcd(d%r, r);
+}
+
+O(log(max(a,b)))
+
+If you divide problem in 2 half. -> logn
+
+Euclidian algorithm Approach
+
+
+3. Problem on GCD
+

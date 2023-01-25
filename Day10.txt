@@ -4,4 +4,15 @@ number of factor play the game. even number of factor so that element is closed.
 Complete square root ->> number of factor will be odd
 so odd number factor will have open doors
 
-math.floor(math.sqrt(n)) 
+math.floor(math.sqrt(n)) ;
+
+sqrt(n) * sqrt(n) = n;
+
+
+2. excel sheet column title ->leetcode 168
+
+1000 = 26 * 38 +12
+26*(1*26+12) + 12* 26^0 -> ALL
+1-A
+12-L 
+12 - L

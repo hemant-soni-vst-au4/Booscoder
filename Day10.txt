@@ -1,0 +1,7 @@
+1. Number of open doors problem -> GFG
+
+number of factor play the game. even number of factor so that element is closed.
+Complete square root ->> number of factor will be odd
+so odd number factor will have open doors
+
+math.floor(math.sqrt(n)) 

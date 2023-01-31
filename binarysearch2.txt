@@ -1,0 +1,6 @@
+1. find max distance which he can maintain between each pair cow.
+Accomdate all the cow.
+
+minimum of max will be answer => 1 difference 8 and other differenceis 12 then answer will be 8 
+
+
